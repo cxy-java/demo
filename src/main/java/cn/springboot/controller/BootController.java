@@ -15,39 +15,46 @@ import cn.springboot.service.SparkBean;
 @RequestMapping("/")
 public class BootController {
 	private Logger logger = LoggerFactory.getLogger(BootController.class);
-	
+
 	@Autowired
 	private BootService bootService;
 	@Autowired
 	private SparkBean sparkBean;
-	
-	@RequestMapping(value = "/hello")
+
+	/*@RequestMapping(value = "/hello")
 	@ResponseBody
 	public String hello() {
 		bootService.qryAll();
 		return "Hello World!";
-	}
-	
+	}*/
+
 	@RequestMapping(value = "/load")
 	@ResponseBody
-	public String loadData(){
+	public String loadData() {
 		sparkBean.loadData();
 		return "load";
 	}
-	
+
 	@RequestMapping(value = "/qry")
 	@ResponseBody
-	public String qryData(){
-		List<Map<String,Object>> list = sparkBean.qryData();
+	public String qryData() {
+		List<Map<String, Object>> list = sparkBean.qryData();
 		System.out.println(list);
 		return "qry";
 	}
-	
+
 	@RequestMapping(value = "/qry2")
 	@ResponseBody
-	public String qryData2(){
-		List<Map<String,Object>> list = sparkBean.qryData2();
+	public String qryData2() {
+		List<Map<String, Object>> list = sparkBean.qryData2();
 		System.out.println(list);
+		return "qry";
+	}
+
+	@RequestMapping(value = "/qry3")
+	@ResponseBody
+	public String qryData3() {
+		bootService.qryDurid();
 		return "qry";
 	}
 }
