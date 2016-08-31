@@ -28,4 +28,11 @@ public class RedisController {
 		redisService.saveRedis();
 		return "list";
 	}
+	
+	@RequestMapping("sendredismessage")
+	@ResponseBody
+	public String sendMessage(){
+		redisService.sendMessage();
+		return "message";
+	}
 }

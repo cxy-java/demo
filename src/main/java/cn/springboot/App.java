@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.shell.Bootstrap;
 
 import cn.springboot.netty.WebsocketServer;
@@ -17,6 +18,7 @@ import cn.springboot.netty.WebsocketServer;
 @ComponentScan  
 @EnableAutoConfiguration
 @ServletComponentScan
+@ImportResource(locations = "classpath*:/applicationContext.xml")
 public class App 
 {
     public static void main( String[] args ) throws Exception
