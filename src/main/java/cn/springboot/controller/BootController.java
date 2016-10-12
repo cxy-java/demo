@@ -6,8 +6,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import cn.springboot.async.AsyncService;
 import cn.springboot.service.BootService;
 import cn.springboot.service.SparkBean;
 
@@ -20,6 +23,8 @@ public class BootController {
 	private BootService bootService;
 	@Autowired
 	private SparkBean sparkBean;
+	@Autowired
+	private AsyncService asyncService;
 
 	/*@RequestMapping(value = "/hello")
 	@ResponseBody
@@ -56,5 +61,14 @@ public class BootController {
 	public String qryData3() {
 		bootService.qryDurid();
 		return "qry";
+	}
+	
+	@RequestMapping(value = "/sayhello")
+	@ResponseBody
+	public String sayHello(){
+		asyncService.sayHello1();
+		asyncService.sayHello2();
+		asyncService.sayHello3();
+		return "hello";
 	}
 }
