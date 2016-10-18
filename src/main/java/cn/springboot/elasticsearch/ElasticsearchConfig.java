@@ -5,6 +5,7 @@ import java.net.UnknownHostException;
 import javax.annotation.Resource;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
+import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.common.transport.TransportAddress;
 import org.springframework.context.annotation.Bean;
@@ -26,7 +27,8 @@ public class ElasticsearchConfig {
 		InetAddress inetAddress = null;
 		TransportClient client = null;
 		try {
-			client = TransportClient.builder().build();
+			Settings settings = Settings.settingsBuilder().put("cluster.name", "my-application").build();
+			client = TransportClient.builder().settings(settings).build();
 			inetAddress = InetAddress.getByName(environment.getProperty("elasticsearch.host"));
 			TransportAddress address = new InetSocketTransportAddress(inetAddress,
 					Integer.parseInt(environment.getProperty("elasticsearch.port")));

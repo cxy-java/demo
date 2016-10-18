@@ -1,8 +1,5 @@
 package cn.springboot.elasticsearch;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +11,8 @@ import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilde
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
 
+import cn.springboot.elasticsearch.model.User;
+
 @Service
 public class QueryService {
 
@@ -24,21 +23,19 @@ public class QueryService {
 	}
 
 	public void index() {
-		Map<String,Object> userMap = new HashMap<String,Object>();
-		userMap.put("id", "1");
-		userMap.put("name", "cxy");
-		userMap.put("age", 28);
-		IndexQuery indexQuery = new IndexQueryBuilder().withId((String)userMap.get("id")).withObject(userMap).build();
+		User user = new User();
+		user.setId(200);
+		user.setName("虚竹");
+		user.setAge(28);
+		IndexQuery indexQuery = new IndexQueryBuilder().withId(String.valueOf(user.getId())).withObject(user).build();
 		elasticsearchTemplate.index(indexQuery);
 	}
 
-	
-	public void qry(String id){
+	public Page<User> qry(String name) {
 		BoolQueryBuilder builder = new BoolQueryBuilder();
-		builder.must(QueryBuilders.matchQuery("id", id));
-		SearchQuery searchQuery = new NativeSearchQueryBuilder()
-	        .withQuery(builder)
-	        .build();
-	        Page<Map> sampleEntities = elasticsearchTemplate.queryForPage(searchQuery,Map.class);
+		builder.must(QueryBuilders.matchQuery("name", name));
+		SearchQuery searchQuery = new NativeSearchQueryBuilder().withQuery(builder).build();
+		Page<User> sampleEntities = elasticsearchTemplate.queryForPage(searchQuery, User.class);
+		return sampleEntities;
 	}
 }
