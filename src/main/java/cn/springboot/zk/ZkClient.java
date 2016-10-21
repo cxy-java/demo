@@ -39,7 +39,7 @@ public class ZkClient implements Watcher {
 		}
 	}
 
-	public static void main(String[] args) throws KeeperException, InterruptedException, IOException {
+	/*public static void main(String[] args) throws KeeperException, InterruptedException, IOException {
 		String hostPort = "192.168.148.131:2181";
 		new ZkClient(hostPort);
 		Stat stat = zk.exists(zNode, true);
@@ -57,6 +57,6 @@ public class ZkClient implements Watcher {
 		in.close();
 		while (true) {
 		}
-	}
+	}*/
 
 }

@@ -9,7 +9,7 @@ import org.apache.thrift.transport.TTransportException;
 
 public class ThriftClient {
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		TTransport transport = null;
 		try {
 			transport = new TSocket("127.0.01", 6060, 30);
@@ -27,5 +27,5 @@ public class ThriftClient {
 				transport.close();
 			}
 		}
-	}
+	}*/
 }

@@ -16,7 +16,7 @@ import cn.springboot.thrift.impl.HelloWorldServiceImpl;
  */
 public class ThriftServer {
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		try {
 
 			TProcessor tprocessor = new HelloWorldService.Processor<HelloWorldService.Iface>(
@@ -33,5 +33,5 @@ public class ThriftServer {
 			System.out.println("Server start error!!!");
 			e.printStackTrace();
 		}
-	}
+	}*/
 }
