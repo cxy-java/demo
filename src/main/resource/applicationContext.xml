@@ -6,4 +6,40 @@
    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
    http://www.springframework.org/schema/redis http://www.springframework.org/schema/redis/spring-redis.xsd">
 
+	<bean id="quartzScheduler" lazy-init="false" autowire="no"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="mytrigger" />
+			</list>
+		</property>
+		<property name="applicationContextSchedulerContextKey" value="applicationContext" />
+		<property name="configLocation" value="classpath:quartz.properties" />
+	</bean>
+	
+	<!-- 两种方式 JobDetailFactoryBean MethodInvokingJobDetailFactoryBean(不支持数据库实例化) -->
+	
+	<!-- 
+	<bean id="myjobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="myjobBean" />
+		<property name="targetMethod" value="run" />
+	</bean>
+	 -->
+	 
+	<bean id="myjobDetail"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="cn.springboot.quartz.Myjob" />
+		<property name="durability" value="true" />
+	</bean>
+
+	<bean id="mytrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="myjobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0/5 * * ? * * *</value>
+		</property>
+	</bean>
 </beans>
