@@ -23,12 +23,12 @@ public class SparkBean implements InitializingBean, Serializable {
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		SparkConf conf = new SparkConf();
+		/*SparkConf conf = new SparkConf();
 		conf.setMaster("local");
 		conf.setAppName("MyApp");
 
 		sparkContext = new JavaSparkContext(conf);
-		sqlContext = new SQLContext(sparkContext);
+		sqlContext = new SQLContext(sparkContext);*/
 	}
 
 	public void loadData() {
