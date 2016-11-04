@@ -2,7 +2,6 @@ package cn.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +23,6 @@ import cn.springboot.netty.WebsocketServer;
 @ImportResource(locations = "classpath*:/applicationContext.xml")
 @PropertySource("classpath:quartz.properties")  
 @EnableAsync
-@SpringBootApplication
 public class App 
 {
     public static void main( String[] args ) throws Exception
