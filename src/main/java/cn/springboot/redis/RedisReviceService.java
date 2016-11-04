@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * @author changxy
  *
  */
-@Service
+/*@Service
 public class RedisReviceService implements MessageListener {
 
 	private Logger logger = LoggerFactory.getLogger(RedisReviceService.class);
@@ -21,3 +21,4 @@ public class RedisReviceService implements MessageListener {
 		logger.info(message.toString());
 	}
 }
+*/

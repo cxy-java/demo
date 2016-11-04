@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
    http://www.springframework.org/schema/redis http://www.springframework.org/schema/redis/spring-redis.xsd">
-
+	<!--
 	<bean id="quartzScheduler" lazy-init="false" autowire="no"
 		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
@@ -16,7 +16,7 @@
 		<property name="applicationContextSchedulerContextKey" value="applicationContext" />
 		<property name="configLocation" value="classpath:quartz.properties" />
 	</bean>
-	
+	-->
 	<!-- 两种方式 JobDetailFactoryBean MethodInvokingJobDetailFactoryBean(不支持数据库实例化) -->
 	
 	<!-- 
@@ -26,7 +26,7 @@
 		<property name="targetMethod" value="run" />
 	</bean>
 	 -->
-	 
+	 <!--
 	<bean id="myjobDetail"
 		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
 		<property name="jobClass" value="cn.springboot.quartz.Myjob" />
@@ -42,4 +42,5 @@
 			<value>0/5 * * ? * * *</value>
 		</property>
 	</bean>
+	-->
 </beans>

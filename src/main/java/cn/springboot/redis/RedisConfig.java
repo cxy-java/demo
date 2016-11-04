@@ -30,7 +30,7 @@ public class RedisConfig {
 		return jedisConnectionFactory;
 	}
 
-	@Bean
+	/*@Bean
 	RedisMessageListenerContainer container(RedisConnectionFactory connectionFactory,
 			MessageListenerAdapter listenerAdapter) {
 		RedisMessageListenerContainer container = new RedisMessageListenerContainer();
@@ -42,5 +42,5 @@ public class RedisConfig {
 	@Bean
 	MessageListenerAdapter listenerAdapter(RedisReviceService receiver) {
 		return new MessageListenerAdapter(receiver, "receiveMessage");
-	}
+	}*/
 }
