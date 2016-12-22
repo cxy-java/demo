@@ -15,7 +15,7 @@ import cn.springboot.netty.WebsocketServer;
 /**
  * Hello world!
  *
- */
+ *//*
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration
@@ -33,3 +33,4 @@ public class App
         Bootstrap.main(args);
     }
 }
+*/
