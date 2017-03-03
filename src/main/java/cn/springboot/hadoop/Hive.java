@@ -7,7 +7,7 @@ import org.springframework.data.hadoop.hive.HiveTemplate;
 
 public class Hive {
 
-	@SuppressWarnings({ "resource", "rawtypes" })
+	/*@SuppressWarnings({ "resource", "rawtypes" })
 	public static void main(String[] args) {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-hive.xml");
@@ -17,6 +17,6 @@ public class Hive {
 		list = hiveTemplate.query("select name from mydb.employee;");
 		System.out.println(list);
 		context.registerShutdownHook();
-	}
+	}*/
 
 }

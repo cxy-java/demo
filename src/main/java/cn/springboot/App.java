@@ -15,13 +15,13 @@ import cn.springboot.netty.WebsocketServer;
 /**
  * Hello world!
  *
- *//*
+ */
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration
 @ServletComponentScan
 @ImportResource(locations = "classpath*:/applicationContext.xml")
-@PropertySource("classpath:quartz.properties")  
+//@PropertySource("classpath:quartz.properties")  
 @EnableAsync
 public class App 
 {
@@ -33,4 +33,3 @@ public class App
         Bootstrap.main(args);
     }
 }
-*/

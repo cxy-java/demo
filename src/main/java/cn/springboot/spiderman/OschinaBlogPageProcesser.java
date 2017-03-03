@@ -27,8 +27,8 @@ public class OschinaBlogPageProcesser implements PageProcessor {
 
 	}
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		Spider.create(new OschinaBlogPageProcesser()).addUrl("http://my.oschina.net/flashsword/blog")
 				.addPipeline(new ConsolePipeline()).thread(3).run();
-	}
+	}*/
 }

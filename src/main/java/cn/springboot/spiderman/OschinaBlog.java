@@ -20,8 +20,8 @@ public class OschinaBlog {
 	@ExtractBy(value = "//div[@class='BlogTags']/a/text()", multi = true)
 	private List<String> tags;
 
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		OOSpider.create(Site.me(), new ConsolePageModelPipeline(), OschinaBlog.class)
 				.addUrl("http://my.oschina.net/flashsword/blog").run();
-	}
+	}*/
 }
